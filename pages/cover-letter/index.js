@@ -6,11 +6,37 @@ export default function CreateCoverLetter(){
 
   const [jobTitle, setJobTitle] = useState("")
   const [company, setCompany] = useState("")
+  const [coverLetter, setCoverLetter] = useState("")
   //const [jobTitle, setJobTitle] = useState("")
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     console.log("submitted")
+    try {
+      const res = await fetch("/api/generate", {
+        method: "POST",
+        headers: {
+          'content-type': 'application/json'
+        },
+        body: JSON.stringify({
+          company:company, 
+          jobTitle:jobTitle,
+          name: "Anton Plauche",
+          education: "Bachelors in Marketing and Self Taught developer",
+          skills: "html, react, javascript, wordpress"
+        })
+      })
+  
+      const json = await res.json()
+
+      // setCoverLetter(json.data.coverLetter)
+  
+      console.log(json)
+
+    } catch(e){
+      console.log(e)
+    }
+
   }
 
   return (
@@ -43,6 +69,8 @@ export default function CreateCoverLetter(){
 
         </form>
       </div>
+
+      <div dangerouslySetInnerHTML={{__html: coverLetter}}></div>
     
     </>
   )
