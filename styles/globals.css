@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer base {
+  body {
+    color: #323232;
+    background-color: #F2EFED;
+  }
+  h1 {
+    font-size: clamp(30px, 5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-size: clamp(26px, 4vw, 48px);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  h3 {
+    font-size: clamp(22px, 3.5vw, 40px);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+  h4 {
+    font-size: clamp(20px, 3vw, 32px);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+  h5 {
+    font-size: clamp(18, 2.5vw, 24px);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+  h6 {
+    font-size: clamp(16px, 2vw, 18px);
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  input {
+    @apply block py-2 px-4 rounded-md mb-4 w-full border focus:outline-none focus:border-black;
+  }
+}
+
+@layer components {
+  .button {
+    @apply px-6 py-2 rounded-md inline-block bg-primary text-black border border-black hover:bg-white;
+  }
+  .button.button--secondary {
+    @apply text-black bg-secondary hover:bg-primary;
+  }
+}
