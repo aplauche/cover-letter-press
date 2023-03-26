@@ -70,7 +70,6 @@ export default function CreateCoverLetter(){
         </form>
       </div>
 
-      <div dangerouslySetInnerHTML={{__html: coverLetter}}></div>
     
     </>
   )

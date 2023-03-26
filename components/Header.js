@@ -14,7 +14,7 @@ export default function Header() {
         <div className="container flex justify-between items-center mx-auto py-4">
           <div className="logo mr-[20%]">
             <Link href="/">
-              COVERLETTER.PRESS
+              <img className="w-[150px]" src="/assets/cover-letter-press-logo.svg" alt="" />
             </Link>
           </div>
           <div className="navigation flex justify-end items-center gap-8 bg-white py-4 px-6 flex-grow rounded-md border border-black">

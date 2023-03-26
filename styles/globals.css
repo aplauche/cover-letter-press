@@ -9,17 +9,17 @@
     background-color: #F2EFED;
   }
   h1 {
-    font-size: clamp(30px, 5vw, 60px);
+    font-size: clamp(30px, 4vw, 48px);
     line-height: 1.1;
     margin-bottom: 1.5rem;
   }
   h2 {
-    font-size: clamp(26px, 4vw, 48px);
+    font-size: clamp(26px, 3.5vw, 40px);
     line-height: 1.1;
     margin-bottom: 1.5rem;
   }
   h3 {
-    font-size: clamp(22px, 3.5vw, 40px);
+    font-size: clamp(22px, 3.25vw, 36px);
     line-height: 1.1;
     margin-bottom: 1.5rem;
   }
@@ -43,7 +43,7 @@
     margin-bottom: 1rem;
   }
 
-  input {
+  input, textarea {
     @apply block py-2 px-4 rounded-md mb-4 w-full border focus:outline-none focus:border-black;
   }
 }
@@ -54,5 +54,8 @@
   }
   .button.button--secondary {
     @apply text-black bg-secondary hover:bg-primary;
+  }
+  .button:disabled {
+    @apply bg-gray-100;
   }
 }
