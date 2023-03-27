@@ -46,9 +46,9 @@ export default withApiAuthRequired(async function handler(req, res) {
     max_tokens: 1000,
     prompt: `
       Write a long and detailed cover letter applying for the position of ${jobTitle},
-      at the company ${company}. Mention my educational background which includes ${education}, but do not include specifics about the institution unless specified. 
-      Also mention the following skills I bring to the job: ${skills}
-      Sign the cover letter from ${name}.
+      at the company ${company}. ${education ? `Mention my educational background which includes ${education}, but do not include specifics about the institution unless specified.` : ""} 
+      ${skills ? `Also mention the following skills I bring to the job: ${skills}` : ""}
+      Sign the cover letter from ${name ? name : "[Name goes here]"}.
       The cover letter content should be formatted in HTML paragraphs using only paragraph tags, no <br> tags.
       The return format must be valid JSON (with no \n or \t in the output) in the following format:
       {
@@ -78,5 +78,7 @@ export default withApiAuthRequired(async function handler(req, res) {
     created: new Date()
   })
 
-  res.status(200).json({ post })
+  console.log(post)
+
+  res.status(200).json({ clid: post._id })
 })
